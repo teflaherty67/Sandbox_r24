@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Sandbox_r24 - Command 1</Text>
+    <Description>Some description</Description>
+    <Assembly>Sandbox_r24\Sandbox_r24.dll</Assembly>
+    <FullClassName>Sandbox_r24.Command1</FullClassName>
+    <ClientId>c4b8ebf8-4861-4a1c-8e47-126ba181e9cb</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>Sandbox_r24 - Command 2</Text>
+    <Description>Some description</Description>
+    <Assembly>Sandbox_r24\Sandbox_r24.dll</Assembly>
+    <FullClassName>Sandbox_r24.Command2</FullClassName>
+    <ClientId>6f1920c4-f0ec-4f3f-8808-8b971b96cfbb</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Sandbox_r24</Name>
+    <Assembly>Sandbox_r24\Sandbox_r24.dll</Assembly>
+    <FullClassName>Sandbox_r24.App</FullClassName>
+    <ClientId>31a732e3-7cb2-44e6-9a01-371c5f9eb2dd</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
