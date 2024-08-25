@@ -73,6 +73,45 @@
             return m_returnCat;
         }
 
+        //internal static List<Category> GetCategoryByName(Document curDoc, string catName)
+        //{
+        //   // loop through categories in current model file
+        //   foreach (Category curCat in curDoc.Settings.Categories)
+        //    {
+        //        if (curCat.Name == catName)
+        //            return curCat;
+        //    }
+
+        //    return null;
+        //}
+
+        internal static List<Categories> GetCategoriesByViewType(Document curDoc, View curView)
+        {
+            // create an empty category list
+            List<Categories> m_categories = new List<Categories>();
+
+            // get the current view
+            curView = curDoc.ActiveView;
+
+            // set the form to display based on the current view
+            if (curView is Autodesk.Revit.DB.ViewPlan)
+            {
+                m_categories.Add(BuiltInCategory.OST_Doors);
+
+                    
+            }
+            else if (curView is Autodesk.Revit.DB.ViewSection)
+            {
+                List<string> catNamesVSection = new List<string>() { "Grids", "Levels" };
+            }
+            else if (curView is Autodesk.Revit.DB.ViewSheet)
+            {
+                List<string> catNamesVSheet = new List<string>() { "Viewports" };
+            }
+
+            return null;
+        }
+
         #endregion
     }
 }

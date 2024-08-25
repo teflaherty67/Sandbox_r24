@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sandbox_r24.Renumber"
         mc:Ignorable="d"
-        Title="Renumber" Height="450" Width="800">
-    <Grid>
+        Title="Renumber" Height="240" Width="300">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Content="Pick element type to renumber:" VerticalAlignment="Center"/>
         
+        <!--add code for element type buttons-->
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Enter starting number:"/>
+            <TextBox x:Name="tbxStartNum"  Grid.Column="1" Width="75" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+        </Grid>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnOK" Width="70" Height="25" Content="OK" Margin="0,0,10,0" Click="btnOK_Click"/>
+            <Button x:Name="btnCancel" Width="70" Height="25" Content="Cancel" Margin="0,0,10,0" Click="btnCancel_Click" />
+            <Button x:Name="btnHelp" Width="70" Height="25" Content="Help" Click="btnHelp_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

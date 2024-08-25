@@ -23,5 +23,23 @@ namespace Sandbox_r24.Renumber
         {
             InitializeComponent();
         }
+
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
+        }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

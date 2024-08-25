@@ -1,4 +1,6 @@
-﻿namespace Sandbox_r24
+﻿using Sandbox_r24.Common;
+
+namespace Sandbox_r24
 {
     [Transaction(TransactionMode.Manual)]
     public class cmdRenumber : IExternalCommand
@@ -33,6 +35,9 @@
             }
 
             // get data from the form
+
+            List<Categories> catList = new List<Categories>();
+            catList = Utils.GetCategoriesByViewType(curDoc, curView);
 
             // create and start transaction
 
