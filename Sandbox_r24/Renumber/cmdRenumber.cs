@@ -1,4 +1,5 @@
-﻿using Sandbox_r24.Common;
+﻿using Autodesk.Revit.DB.Architecture;
+using Sandbox_r24.Common;
 
 namespace Sandbox_r24
 {
@@ -14,7 +15,7 @@ namespace Sandbox_r24
             Document curDoc = uiapp.ActiveUIDocument.Document;
 
             // put code needed for form here
-
+            
             // open the form
 
             // get the current view
@@ -23,26 +24,32 @@ namespace Sandbox_r24
             // set the form to display based on the current view
             if (curView is Autodesk.Revit.DB.ViewPlan)
             {
-                // display the view plan options
+                List<string> catList = new List<string>{ "Doors", "Grids", "Rooms", "Walls", "Windows" };      
             }
             else if (curView is Autodesk.Revit.DB.ViewSection)
             {
-                // display the view section options
+                List<string> catList = new List<string> { "Grids", "Levels" };
             }
             else if (curView is Autodesk.Revit.DB.ViewSheet)
             {
-                // display the view sheet options
+                List<string> catList = new List<string> { "Viewports" };
             }
 
             // get data from the form
 
-            List<Categories> catList = new List<Categories>();
-            catList = Utils.GetCategoriesByViewType(curDoc, curView);
+            
+            
 
             // create and start transaction
+            using(Transaction t = new Transaction(curDoc, "Renumber Elements"))
+            {
+                t.Start();
 
 
 
+
+                t.Commit();
+            }
 
             return Result.Succeeded;
         }

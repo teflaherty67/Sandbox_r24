@@ -11,6 +11,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -26,7 +27,8 @@
             <Label Content="Enter starting number:"/>
             <TextBox x:Name="tbxStartNum"  Grid.Column="1" Width="75" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"  />
         </Grid>
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+        <CheckBox Content="Exclude I and O" Grid.Row="3" VerticalAlignment="Center" />
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="70" Height="25" Content="OK" Margin="0,0,10,0" Click="btnOK_Click"/>
             <Button x:Name="btnCancel" Width="70" Height="25" Content="Cancel" Margin="0,0,10,0" Click="btnCancel_Click" />
             <Button x:Name="btnHelp" Width="70" Height="25" Content="Help" Click="btnHelp_Click"/>
