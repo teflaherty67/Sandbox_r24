@@ -85,10 +85,10 @@
         //    return null;
         //}
 
-        internal static List<Categories> GetCategoriesByViewType(Document curDoc, View curView)
+        internal static List<BuiltInCategory> GetCategoriesByViewType(Document curDoc, View curView)
         {
             // create an empty category list
-            List<Categories> m_categories = new List<Categories>();
+            List<BuiltInCategory> m_categories = new List<BuiltInCategory>();
 
             // get the current view
             curView = curDoc.ActiveView;
@@ -97,8 +97,10 @@
             if (curView is Autodesk.Revit.DB.ViewPlan)
             {
                 m_categories.Add(BuiltInCategory.OST_Doors);
-
-                    
+                m_categories.Add(BuiltInCategory.OST_Grids);
+                m_categories.Add(BuiltInCategory.OST_Rooms);
+                m_categories.Add(BuiltInCategory.OST_Walls);
+                m_categories.Add(BuiltInCategory.OST_Windows);
             }
             else if (curView is Autodesk.Revit.DB.ViewSection)
             {
