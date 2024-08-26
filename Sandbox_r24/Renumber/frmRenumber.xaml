@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sandbox_r24"
         mc:Ignorable="d"
-        Height="Auto" Width="Auto"
-        SizeToContent="Height"
-        Title="Renumber">
+        Height="Auto" Width="300"
+        SizeToContent="Height"        
+        Title="ReNumber">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
