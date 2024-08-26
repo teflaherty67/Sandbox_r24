@@ -45,7 +45,6 @@ namespace Sandbox_r24
             return false;
         }
 
-
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
