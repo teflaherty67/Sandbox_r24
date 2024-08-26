@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
   <AddIn Type="Command">
-    <Text>Sandbox_r24 - Command 1</Text>
+    <Text>Sandbox_r24 - Renumber</Text>
     <Description>Some description</Description>
     <Assembly>Sandbox_r24\Sandbox_r24.dll</Assembly>
-    <FullClassName>Sandbox_r24.Command1</FullClassName>
+    <FullClassName>Sandbox_r24.cmdRenumber</FullClassName>
     <ClientId>c4b8ebf8-4861-4a1c-8e47-126ba181e9cb</ClientId>
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
