@@ -32,12 +32,11 @@ namespace Sandbox_r24
             lbxReNumElem.ItemsSource = listRenumElems;
         }
 
-        //public string GetRadioButton()
-        //{
-        //    if
-        //}
+        // add code for radio button result
 
+        // add code for textbox result
 
+        
         internal bool GetCheckBoxExclude()
         {
             if (cbxExclude.IsChecked == true)
