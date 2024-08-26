@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB.Architecture;
 using Sandbox_r24.Common;
+using System.Windows;
 
 namespace Sandbox_r24
 {
@@ -15,25 +16,47 @@ namespace Sandbox_r24
             Document curDoc = uiapp.ActiveUIDocument.Document;
 
             // put code needed for form here
-            
-            // open the form
 
             // get the current view
             View curView = curDoc.ActiveView;
 
-            // set the form to display based on the current view
+            // create list for categories to renumber
+            List<string> catList = new List<string>();
+
+            // populate the list based on view type
             if (curView is Autodesk.Revit.DB.ViewPlan)
             {
-                List<string> catList = new List<string>{ "Doors", "Grids", "Rooms", "Walls", "Windows" };      
+                List<string> catListVPlan = new List<string> { "Doors", "Grids", "Rooms", "Walls", "Windows" };
+
+                foreach (string curCat in catListVPlan)
+                {
+                    catList.Add(curCat);
+                }
             }
             else if (curView is Autodesk.Revit.DB.ViewSection)
             {
-                List<string> catList = new List<string> { "Grids", "Levels" };
+                List<string> catListVSection = new List<string> { "Grids", "Levels" };
+
+                foreach(string curCat in catListVSection)
+                {
+                    catList.Add(curCat);
+                }
             }
             else if (curView is Autodesk.Revit.DB.ViewSheet)
             {
-                List<string> catList = new List<string> { "Viewports" };
+                catList.Add("Viewports");
             }
+
+            // open the form
+            frmRenumber curForm = new frmRenumber(catList)
+            {
+                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
+                Topmost = true,
+            };
+
+            curForm.ShowDialog();
+
+            
 
             // get data from the form
 

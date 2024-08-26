@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,16 +13,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Sandbox_r24.Renumber
+namespace Sandbox_r24
 {
     /// <summary>
     /// Interaction logic for frmRenumber.xaml
     /// </summary>
     public partial class frmRenumber : Window
     {
-        public frmRenumber()
+
+        ObservableCollection<string> listRenumElems { get; set; }
+
+        public frmRenumber(List<string> catList)
         {
             InitializeComponent();
+
+            listRenumElems = new ObservableCollection<string>(catList);
+
+            lbxReNumElem.ItemsSource = listRenumElems;
+        }
+
+
+        internal bool GetCheckBoxExclude()
+        {
+            if (cbxExclude.IsChecked == true)
+                return true;
+
+            return false;
         }
 
 
