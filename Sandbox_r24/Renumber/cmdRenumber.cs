@@ -26,7 +26,7 @@ namespace Sandbox_r24
             // populate the list based on view type
             if (curView is Autodesk.Revit.DB.ViewPlan)
             {
-                List<string> catListVPlan = new List<string> { "Doors", "Grids", "Rooms", "Walls", "Windows" };
+                List<string> catListVPlan = new List<string> { "Doors", "Grids", "Rooms", "Spaces", "Walls", "Windows" };
 
                 foreach (string curCat in catListVPlan)
                 {
@@ -54,19 +54,38 @@ namespace Sandbox_r24
                 Topmost = true,
             };
 
-            curForm.ShowDialog();
-
-            
-
-            // get data from the form
-
-            
-            
+            curForm.ShowDialog();           
 
             // create and start transaction
             using(Transaction t = new Transaction(curDoc, "Renumber Elements"))
             {
                 t.Start();
+
+                // set some variables
+                string detailNumber = null;
+                string doorMark = null;
+                string gridName = null;
+                string roomNumber = null;
+                string spacesNumber = null;
+                string wallMark = null;
+                string windowMark = null;
+                
+                
+                // get the radio button result
+
+                // if
+
+
+
+                // get the start number result
+
+
+
+                // get the cbxExclude result
+                if (curForm.GetCheckBoxExclude() == true) // && curForm.GetStartNum.IsLetter == true
+                {
+                    // skip the letters I and O
+                }
 
 
 
