@@ -22,13 +22,19 @@ namespace Sandbox_r24
     public partial class frmRenumber : Window
     {
 
-        ObservableCollection<string> listRenumElems { get; set; }
+        ObservableCollection<RenumberData> listRenumElems { get; set; }
 
         public frmRenumber(List<string> catList)
         {
             InitializeComponent();
 
-            listRenumElems = new ObservableCollection<string>(catList);
+            listRenumElems = new ObservableCollection<RenumberData>();
+
+            foreach (var cat in catList)
+            {
+                RenumberData tempData = new RenumberData(cat, false);
+                listRenumElems.Add(tempData);
+            }
 
             lbxReNumElem.ItemsSource = listRenumElems;
         }
@@ -46,7 +52,7 @@ namespace Sandbox_r24
             return (containsLetter, containsNumber);
         }
 
-        
+
         internal bool GetCheckBoxExclude()
         {
             if (cbxExclude.IsChecked == true)
@@ -70,6 +76,18 @@ namespace Sandbox_r24
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+    }
+
+    public class RenumberData
+    {
+        public string Name { get; set; }
+        public bool IsChecked { get; set; }
+
+        public RenumberData(string name, bool result)
+        {
+            Name = name;
+            IsChecked = result;
         }
     }
 }
