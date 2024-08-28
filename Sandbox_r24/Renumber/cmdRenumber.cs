@@ -73,11 +73,21 @@ namespace Sandbox_r24
                 
                 // get the radio button result
 
-                // if
+                
 
 
 
                 // get the start number result
+                var resultNum = curForm.GetStartNumber();
+
+                if (resultNum.containsLetter)
+                {
+                    string elemNum = curForm.GetStartNumber().ToString();
+                }
+                else if (resultNum.containsNumber)
+                {
+                    // convert the number string to an integer
+                }
 
 
 
