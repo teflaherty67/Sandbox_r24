@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +36,15 @@ namespace Sandbox_r24
         // add code for radio button result
 
         // add code for textbox result
+        public (bool containsLetter, bool containsNumber) GetStartNumber()
+        {
+            string startNumber = tbxStartNum.Text;
+
+            bool containsLetter = Regex.IsMatch(startNumber, @"[a-zA-Z]");
+            bool containsNumber = Regex.IsMatch(startNumber, @"\d");
+
+            return (containsLetter, containsNumber);
+        }
 
         
         internal bool GetCheckBoxExclude()
