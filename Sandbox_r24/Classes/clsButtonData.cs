@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media.Imaging;
 
-namespace Sandbox_r24
+namespace Sandbox_r24.Classes
 {
     internal class clsButtonData
     {

@@ -53,6 +53,20 @@
             throw new NotImplementedException();
         }
 
+        public static List<View> GetAllNonTemplateViews(Document curDoc)
+        {
+            FilteredElementCollector m_colviews = new FilteredElementCollector(curDoc);
+            m_colviews.OfCategory(BuiltInCategory.OST_Views);
+
+            List<View> m_returnViews = new List<View>();
+            foreach (View curView in m_colviews.ToElements())
+            {
+                m_returnViews.Add(curView);
+            }
+
+            return m_returnViews;
+        }
+
         #endregion
 
         #region Categories
@@ -109,6 +123,103 @@
             else if (curView is Autodesk.Revit.DB.ViewSheet)
             {
                 List<string> catNamesVSheet = new List<string>() { "Viewports" };
+            }
+
+            return null;
+        }
+
+        #endregion
+
+        #region View Templates
+
+        public static List<View> GetAllViewTemplates(Document curDoc)
+        {
+            List<View> returnList = new List<View>();
+            List<View> viewList = GetAllNonTemplateViews(curDoc);
+
+            //loop through views and check if is view template
+            foreach (View v in viewList)
+            {
+                if (v.IsTemplate == true)
+                {
+                    //add view template to list
+                    returnList.Add(v);
+                }
+            }
+
+            return returnList;
+        }
+
+        public static List<string> GetAllViewTemplateNames(Document m_doc)
+        {
+            //returns list of view templates
+            List<string> viewTempList = new List<string>();
+            List<View> viewList = new List<View>();
+            viewList = GetAllNonTemplateViews(m_doc);
+
+            //loop through views and check if is view template
+            foreach (View v in viewList)
+            {
+                if (v.IsTemplate == true)
+                {
+                    //add view template to list
+                    viewTempList.Add(v.Name);
+                }
+            }
+
+            return viewTempList;
+        }
+
+        public static View GetViewTemplateByName(Document curDoc, string viewTemplateName)
+        {
+            List<View> viewTemplateList = GetAllViewTemplates(curDoc);
+
+            foreach (View v in viewTemplateList)
+            {
+                if (v.Name == viewTemplateName)
+                {
+                    return v;
+                }
+            }
+
+            return null;
+        }
+
+        internal static ElementId ImportViewTemplates(Document sourceDoc, View sourceTemplate, Document targetDoc)
+        {
+            CopyPasteOptions copyPasteOptions = new CopyPasteOptions();
+
+            ElementId sourceTemplateId = sourceTemplate.Id;
+
+            List<ElementId> elementIds = new List<ElementId>();
+            elementIds.Add(sourceTemplate.Id);
+
+            ElementTransformUtils.CopyElements(sourceDoc, elementIds, targetDoc, Autodesk.Revit.DB.Transform.Identity, copyPasteOptions);
+
+            return sourceTemplate.Id;
+        }
+
+        internal static View GetViewTemplateByNameContains(Document curDoc, string vtName)
+        {
+            List<View> m_colVTs = Utils.GetAllViewTemplates(curDoc);
+
+            foreach (View curVT in m_colVTs)
+            {
+                if (curVT.Name.Contains(vtName))
+                    return curVT;
+            }
+
+            return null;
+        }
+
+        internal static View GetViewTemplateByCategoryEquals(Document curDoc, string vtName)
+        {
+            List<View> m_colVTs = Utils.GetAllViewTemplates(curDoc);
+
+            foreach (View curVT in m_colVTs)
+            {
+                if (curVT.Category.Equals(vtName))
+                    return curVT;
             }
 
             return null;
