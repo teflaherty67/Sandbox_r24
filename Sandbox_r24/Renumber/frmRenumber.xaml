@@ -22,7 +22,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <RadioButton Margin="5" IsChecked="{Binding IsSelected, Mode=TwoWay}" Content="{Binding}"/>
+                        <RadioButton Margin="5" IsChecked="{Binding IsSelected, Mode=TwoWay}" Content="{Binding Name}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>            
