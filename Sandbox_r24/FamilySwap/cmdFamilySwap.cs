@@ -4,7 +4,7 @@ using Sandbox_r24.Classes;
 namespace Sandbox_r24
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command2 : IExternalCommand
+    public class cmdFamilySwap : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -14,8 +14,13 @@ namespace Sandbox_r24
             // this is a variable for the current Revit model
             Document curDoc = uiapp.ActiveUIDocument.Document;
 
-            // Your code here         
+            // create a form to prompt the user for a door type
 
+            // load the selected door
+
+            // get all the doors in the project
+
+            // swap the doors size for size
 
             return Result.Succeeded;
         }
