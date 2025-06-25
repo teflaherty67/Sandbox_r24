@@ -13,7 +13,7 @@
     <Text>Sandbox_r24 - Command 2</Text>
     <Description>Some description</Description>
     <Assembly>Sandbox_r24\Sandbox_r24.dll</Assembly>
-    <FullClassName>Sandbox_r24.Command2</FullClassName>
+    <FullClassName>Sandbox_r24.cmdUpdateVTs</FullClassName>
     <ClientId>6f1920c4-f0ec-4f3f-8808-8b971b96cfbb</ClientId>
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
